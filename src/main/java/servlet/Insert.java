@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Ingredienti;
 import model.User;
 import utility.Crud;
 
@@ -32,8 +31,7 @@ public class Insert extends HttpServlet {
 
 		Crud daoCrud = new Crud();
 		User userin = daoCrud.retrieveUser(namein, passin);
-		Ingredienti ingredientiS = daoCrud.ingredienti(userin.getId() + 1);
-		request.setAttribute("ingredientiinsert", ingredientiS);
+
 		String[] checkbox = request.getParameterValues("check");
 		String radiobox = request.getParameter("radio");
 		String text = request.getParameter("texting");

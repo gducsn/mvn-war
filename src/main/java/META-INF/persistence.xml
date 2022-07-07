@@ -15,7 +15,7 @@
 			<property name="javax.persistence.jdbc.password"
 				value="1244" />
 			<property name="hibernate.show_sql" value="true" />
-			
+
 		</properties>
 	</persistence-unit>
 </persistence>

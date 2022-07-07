@@ -18,7 +18,7 @@ public class Crud {
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 
-		User user = new User(userin.getPassword(), userin.getPassword());
+		User user = userin;
 		String checkboxdata = "";
 
 		for (String data : checkbox) {
@@ -43,8 +43,9 @@ public class Crud {
 		entityManager.persist(tipoPanino);
 		entityManager.persist(ingredienti);
 
-		entityManager.persist(user);
+		entityManager.flush();
 		entityManager.getTransaction().commit();
+
 		entityManager.close();
 
 	}
