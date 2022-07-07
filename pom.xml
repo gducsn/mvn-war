@@ -40,7 +40,11 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
 			<version>1.2.1</version>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 
 	</dependencies>
 </project>

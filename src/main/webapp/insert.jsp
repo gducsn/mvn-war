@@ -1,10 +1,11 @@
 
+<%@page import="utility.Crud"%>
 <%@page import="model.Ingredienti"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,9 @@
 <%
 String namein = (String) session.getAttribute("userlogin");
 String text = (String) request.getAttribute("text");
+Crud daoCrud = new Crud();
+@SuppressWarnings("unchecked")
+List<Ingredienti> lista = (List<Ingredienti>) session.getAttribute("ingredienti");
 %>
 <title>Welcome <%=namein%></title>
 </head>
@@ -102,21 +106,18 @@ String text = (String) request.getAttribute("text");
 				</c:if>
 			</div>
 
-			<div
+		<div
 				class=" p-3 d-flex justify-content-center flex-column align-items-center">
 				<h5 class="p-2 lead">i tuoi panini</h5>
 				<ul class="list-group w-50">
-					<li class="list-group-item">cereali </li>
-					<li class="list-group-item">cereali + cotto</li>
-					<li class="list-group-item">comune + crudo</li>
-					<li class="list-group-item">condito + mortadella</li>
+					<li class="list-group-item"><%=lista.get(1).getTipo()%></li>
+					<li class="list-group-item"><%=lista.get(2).getTipo()%></li>
+					<li class="list-group-item"><%=lista.get(3).getTipo()%></li>
 				</ul>
 
-
 			</div>
-
-
-
+			
+		
 		</form>
 	</div>
 

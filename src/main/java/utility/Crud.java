@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import model.Ingredienti;
@@ -75,5 +76,23 @@ public class Crud {
 		return listaUser != null && !listaUser.isEmpty() ? listaUser.get(0) : null;
 
 	};
+
+	@SuppressWarnings("unchecked")
+	public List<Ingredienti> ingredienti(int id) {
+
+		EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
+		entityManager.getTransaction().begin();
+
+		Query q = entityManager.createNativeQuery("SELECT * FROM food.ingredienti where user_id = ?",
+				Ingredienti.class);
+		q.setParameter(1, id);
+		List<Ingredienti> ingredienti = (List<Ingredienti>) q.getResultList();
+
+		entityManager.getTransaction().commit();
+		entityManager.close();
+
+		return ingredienti;
+
+	}
 
 }

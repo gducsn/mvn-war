@@ -32,7 +32,8 @@ public class Home extends HttpServlet {
 		if (checkUser(request, response) == true) {
 
 			HttpSession session = request.getSession();
-
+			Crud daoCrud = new Crud();
+			session.setAttribute("ingredienti", daoCrud.ingredienti(user.getId()));
 			session.setAttribute("userlogin", name);
 			session.setAttribute("userpass", pass);
 
