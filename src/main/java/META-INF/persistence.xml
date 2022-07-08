@@ -13,7 +13,7 @@
 				value="jdbc:mysql://localhost:3306/food" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password"
-				value="1244" />
+				value="12345" />
 			<property name="hibernate.show_sql" value="true" />
 
 		</properties>
